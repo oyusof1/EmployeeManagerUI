@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit} from '@angular/core';
 import {Employee} from "../models/Employee";
 import {HttpService} from "../http.service";
 
@@ -9,9 +9,11 @@ import {HttpService} from "../http.service";
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[];
+  imgUrl: string;
 
   constructor(private httpService: HttpService) {
     this.employees = [];
+    this.imgUrl = `https://avatars.dicebear.com/api/male/${this.makeRandom()}.svg`;
   }
 
 
@@ -36,4 +38,8 @@ export class EmployeeComponent implements OnInit {
         this.employees = employee);
    }
 
+  removeEmployee(employee: Employee) {
+    console.log(employee);
+    this.httpService.removeEmployee(employee.id);
+  }
 }

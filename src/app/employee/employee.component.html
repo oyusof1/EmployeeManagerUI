@@ -4,12 +4,13 @@
     <div class="col s12 m6">
       <div class="card blue-grey lighten-3">
         <div class="card-content white-text">
+          <button class="x-button" (click)="removeEmployee(employee)">X</button>
           <span class="card-title"><strong>{{employee.name}}</strong></span>
           <p>{{employee.email}}</p>
           <p>{{employee.position}}</p>
           <div class="center-block">
           <img class="card"
-               src="https://avatars.dicebear.com/api/male/{{makeRandom()}}.svg" alt="image">
+               [src]="imgUrl" alt="image">
           </div>
         </div>
       </div>
